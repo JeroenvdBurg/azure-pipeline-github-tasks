@@ -1,0 +1,58 @@
+{
+    "manifestVersion": 1,
+    "id": "GitHubPRLabel",
+    "name": "GitHub PR label management (Unnoficial)",
+    "version": "0.1.8",
+    "publisher": "fbeltrao",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Add or remove GitHub labels in a PR",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "tags": [
+        "github",
+        "pull request",
+        "label"
+    ],
+    "icons": {
+        "default": "GitHubPRLabel/icon.png"        
+    },   
+    "links": {
+        "getstarted": {
+            "uri": "https://github.com/fbeltrao/azure-pipeline-github-tasks"
+        },
+        "support": {
+            "uri": "https://github.com/fbeltrao/azure-pipeline-github-tasks/issues"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/fbeltrao/azure-pipeline-github-tasks"
+    },
+    "files": [
+        {
+            "path": "GitHubPRLabel"
+        }
+    ],
+    "content": {
+        "details": {
+            "path": "GitHubPRLabel/README.md"
+        }
+    },
+    "contributions": [
+        {
+            "id": "custom-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "GitHubPRLabel"
+            }
+        }
+    ]
+}

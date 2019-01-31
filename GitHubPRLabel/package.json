@@ -1,0 +1,22 @@
+{
+  "name": "github.pr.label",
+  "version": "0.1.8",
+  "description": "GitHub PR Label management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fbeltrao",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fbeltrao/azure-pipeline-github-tasks"
+  },
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.12.20",
+    "@types/q": "^1.5.1",
+    "azure-pipelines-task-lib": "^2.7.7",
+    "typed-rest-client": "1.0.9"
+  }
+}
