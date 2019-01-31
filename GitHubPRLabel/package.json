@@ -1,6 +1,6 @@
 {
   "name": "github.pr.label",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "GitHub PR Label management",
   "main": "index.js",
   "scripts": {
