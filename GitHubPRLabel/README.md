@@ -1,6 +1,6 @@
 # GitHub Pull Request label management
 
-Unnoficial extension to add or remove labels to PRs.
+Pipeline task to add or remove labels to PRs.
 
 ## Usages
 

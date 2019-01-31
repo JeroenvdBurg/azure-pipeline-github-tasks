@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "GitHubPRLabel",
-    "name": "GitHub PR label management (Unnoficial)",
+    "name": "GitHub PR label management",
     "version": "0.1.8",
     "publisher": "fbeltrao",
     "targets": [
