@@ -1,6 +1,8 @@
-# GitHub Pull Request label management
+# Azure DevOps pipeline tasks for GitHub
 
-Pipeline task to add or remove labels to PRs.
+If you are using Azure DevOps Pipelines for GitHub repositories might want to apply labels to PRs to validate the quality. This extension adds tasks to add/remove labels to PRs.
+
+If you like the extension please provide a review and comments if you have any.
 
 ## Usages
 
@@ -37,4 +39,20 @@ Pipeline task to add or remove labels to PRs.
     action: 'remove'
     gitHubConnection: myGitHubConnection
     label: ci-succeeded
+```
+
+### Checking if a label exists using bash
+
+```yaml
+  # Find out if full ci is enabled for Pull Request validation
+  - bash: |
+     echo "Looking for label at https://api.github.com/repos/$BUILD_REPOSITORY_ID/issues/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/labels"
+     if curl -s "https://api.github.com/repos/$BUILD_REPOSITORY_ID/issues/$SYSTEM_PULLREQUEST_PULLREQUESTNUMBER/labels" | grep '"name": "fullci"'
+     then
+       echo "##vso[task.setvariable variable=prWithCILabel;isOutput=true]true"
+       echo "fullci label found!"
+     fi
+    displayName: Check for CI label build on PR
+    condition: eq(variables['Build.Reason'], 'PullRequest')
+    name: checkPrCILabel
 ```

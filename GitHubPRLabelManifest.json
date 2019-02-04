@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "GitHubPRLabel",
     "name": "GitHub PR label management",
-    "version": "0.1.9",
+    "version": "0.1.5",
     "publisher": "fbeltrao",
     "targets": [
         {
@@ -18,9 +18,14 @@
         "pull request",
         "label"
     ],
+    "public": true,
     "icons": {
         "default": "GitHubPRLabel/icon.png"        
     },   
+    "bugs": {
+        "url": "https://github.com/fbeltrao/azure-pipeline-github-tasks/issues"
+    },
+    "homepage": "https://github.com/fbeltrao/azure-pipeline-github-tasks/blob/master/GitHubPRLabel/README.md",
     "links": {
         "getstarted": {
             "uri": "https://github.com/fbeltrao/azure-pipeline-github-tasks"
@@ -35,12 +40,13 @@
     },
     "files": [
         {
-            "path": "GitHubPRLabel"
+            "path": "GitHubPRLabel",
+            "addressable": true
         }
     ],
     "content": {
         "details": {
-            "path": "GitHubPRLabel/README.md"
+            "path": "GitHubPRLabel/overview.md"
         }
     },
     "contributions": [
