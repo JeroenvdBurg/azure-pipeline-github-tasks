@@ -1,7 +1,7 @@
 {
-    "id": "eb180b11-61cb-4cca-a936-c826fa3c93ab",
+    "id": "d35060f8-c8dd-4fbf-a54d-7639d9a7b723",
     "name": "GitHubPRLabel",
-    "friendlyName": "GitHub PR label extensions",
+    "friendlyName": "GitHub PR label management",
     "description": "Add or remove labels from GitHub pull requests",
     "helpMarkDown": "Add or remove labels from GitHub pull requests",
     "category": "Utility",
@@ -13,7 +13,7 @@
     "version": {
         "Major": 0,
         "Minor": 1,
-        "Patch": 5
+        "Patch": 14
     },
     "instanceNameFormat": "GitHub PR label ($(action) $(label))",
     "inputs": [

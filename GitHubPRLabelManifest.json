@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "GitHubPRLabel",
     "name": "GitHub PR label management",
-    "version": "0.1.5",
+    "version": "0.1.14",
     "publisher": "fbeltrao",
     "targets": [
         {
@@ -51,7 +51,7 @@
     },
     "contributions": [
         {
-            "id": "custom-build-release-task",
+            "id": "GitHubPRLabel",
             "type": "ms.vss-distributed-task.task",
             "targets": [
                 "ms.vss-distributed-task.tasks"
