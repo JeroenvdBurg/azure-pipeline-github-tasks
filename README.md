@@ -1,20 +1,17 @@
 # Azure DevOps pipeline tasks for GitHub
-**************************************************
 
-If you are using Azure DevOps Pipelines for GitHub repositories might want to apply labels to PRs to validate the quality. This extension adds tasks to add/remove labels to PRs.
+Tasks to manage labels in a GitHub pull request from Azure DevOps Pipeline.
 
-If you like the extension please provide a review and comments if you have any.
-
-## Usages
+## Usage
 
 - Add a label to indicate whether or not a CI build succeeded
 - Add a label to indicate that a build is being processed
 
 ## Requirements
 
-- Only use in PR builds
-- Repository is hosted in GitHub
-- Labels are already defined in GitHub. This extension only applies them.
+- Only for PR triggered builds `condition: eq(variables['Build.Reason'], 'PullRequest')`
+- Source code repository is hosted in GitHub
+- Labels must already be defined in GitHub. This extension only applies them.
 
 ## Examples
 
