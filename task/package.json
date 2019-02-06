@@ -1,0 +1,37 @@
+{
+  "name": "azure-pipeline-github-tasks",
+  "version": "0.1.0",
+  "description": "GitHub PR Label management",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.7.7"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.21",
+    "@types/q": "^1.5.1",
+    "typed-rest-client": "^1.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbeltrao/azure-pipeline-github-tasks.git"
+  },
+  "keywords": [
+    "azuredevops",
+    "github",
+    "label",
+    "pull",
+    "request"
+  ],
+  "author": "fbeltrao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fbeltrao/azure-pipeline-github-tasks/issues"
+  },
+  "homepage": "https://github.com/fbeltrao/azure-pipeline-github-tasks#readme"
+}
