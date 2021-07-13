@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AzureDevOpsVariables = exports.ActionType = exports.Utility = void 0;
 const tl = require("azure-pipelines-task-lib/task");
 class Utility {
     static getGithubEndPointToken(githubEndpoint) {
@@ -27,16 +28,16 @@ class Utility {
         return this._githubApiUrl; // url without slash at end
     }
 }
-Utility._githubApiUrl = "https://api.github.com"; // url without slash at end
 exports.Utility = Utility;
+Utility._githubApiUrl = "https://api.github.com"; // url without slash at end
 class ActionType {
 }
+exports.ActionType = ActionType;
 ActionType.add = "add";
 ActionType.remove = "remove";
 ActionType.export = "export";
-exports.ActionType = ActionType;
 class AzureDevOpsVariables {
 }
+exports.AzureDevOpsVariables = AzureDevOpsVariables;
 AzureDevOpsVariables.buildRepositoryId = "Build.Repository.Id";
 AzureDevOpsVariables.pullRequestNumber = "System.PullRequest.PullRequestNumber";
-exports.AzureDevOpsVariables = AzureDevOpsVariables;
