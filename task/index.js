@@ -18,12 +18,16 @@ function run() {
             const githubEndpoint = tl.getInput('gitHubConnection', true);
             const githubEndpointToken = Utility_1.Utility.getGithubEndPointToken(githubEndpoint);
             const action = tl.getInput('action', true).toLowerCase();
-            const label = tl.getInput('label', true);
+            const label = tl.getInput('label', false);
+            const variable = tl.getInput('variable', false);
             if (action == Utility_1.ActionType.add) {
                 yield new Action_1.Action().addLabel(githubEndpointToken, label);
             }
             else if (action == Utility_1.ActionType.remove) {
                 yield new Action_1.Action().removeLabel(githubEndpointToken, label);
+            }
+            else if (action == Utility_1.ActionType.list) {
+                yield new Action_1.Action().listLabels(githubEndpointToken, variable);
             }
         }
         catch (err) {

@@ -7,12 +7,16 @@ async function run() {
         const githubEndpoint: string = tl.getInput('gitHubConnection', true);
         const githubEndpointToken = Utility.getGithubEndPointToken(githubEndpoint);
         const action = tl.getInput('action', true).toLowerCase();
-        const label = tl.getInput('label', true);
+        const label = tl.getInput('label', false);
+        const variable = tl.getInput('variable', false);
         
         if (action == ActionType.add) {
             await new Action().addLabel(githubEndpointToken, label);
         } else if (action == ActionType.remove) {
             await new Action().removeLabel(githubEndpointToken, label);            
+        }
+         else if (action == ActionType.list) {
+            await new Action().listLabels(githubEndpointToken, variable);            
         }
     }
     catch (err) {

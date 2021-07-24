@@ -35,6 +35,7 @@ class ActionType {
 exports.ActionType = ActionType;
 ActionType.add = "add";
 ActionType.remove = "remove";
+ActionType.list = "list";
 ActionType.export = "export";
 class AzureDevOpsVariables {
 }

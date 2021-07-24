@@ -1,11 +1,11 @@
 {
-    "id": "79ae0514-ee91-4a19-ae69-030952b0b23e",
+    "id": "1bf74cdb-58fb-4e0c-8f87-9d926e8b1035",
     "name": "githubprlabels",
     "friendlyName": "GitHub PR labels",
-    "description": "Add or remove labels in GitHub pull requests",
-    "helpMarkDown": "Add or remove labels in GitHub pull requests",
+    "description": "Add ,remove or list labels in GitHub pull requests",
+    "helpMarkDown": "Add ,remove or list labels in GitHub pull requests",
     "category": "Utility",
-    "author": "fbeltrao",
+    "author": "JeroenvdB",
     "preview": true,
     "visibility": [
         "Build"
@@ -13,9 +13,9 @@
     "version": {
         "Major": 0,
         "Minor": 1,
-        "Patch": 5
+        "Patch": 14
     },
-    "instanceNameFormat": "GitHub PR label ($(action) $(label))",
+    "instanceNameFormat": "GitHub PR label ($(action))",
     "inputs": [
         {
             "name": "gitHubConnection",
@@ -34,7 +34,8 @@
             "helpMarkDown": "Specify whether the label should be added or removed from the pull request",
             "options": {
                 "add": "Add",
-                "remove": "Remove"
+                "remove": "Remove",
+                "list": "List"
             }
         },
         {
@@ -45,6 +46,15 @@
             "required": true,
             "visibleRule": "action = add || action = remove",
             "helpMarkDown": "Specify the existing label to add/remove in the GitHub PR. Remember that the label definition must already exist!"
+        },
+        {
+            "name": "variable",
+            "type": "string",
+            "label": "variable",
+            "defaultValue": "",
+            "required": true,
+            "visibleRule": "action = list",
+            "helpMarkDown": "Specify the variable to store the labels"
         }
     ],
     "execution": {

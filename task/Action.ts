@@ -2,9 +2,10 @@ import tl = require("azure-pipelines-task-lib/task");
 import path = require("path");
 import fs = require('fs');
 import { WebResponse, sendRequest, WebRequest } from "./webClient";
-import { Utility, AzureDevOpsVariables } from "./Utility";
+import { Utility, AzureDevOpsVariables, LabelsObj } from "./Utility";
 
 export class Action {
+    
 
     /**
      * Adds a label to a PR
@@ -59,5 +60,39 @@ export class Action {
             tl.error(`Error removing label: "${label}", status code: ${response.statusCode}, uri: ${request.uri}`);
             throw new Error(response.body["message"]);
         }  
+    }
+    
+    /**
+     * lists labels from a PR
+     * @param githubEndpointToken 
+     * @param label
+     */
+    public async listLabels(githubEndpointToken: string, variable: string): Promise<void> {
+        const repoId = tl.getVariable(AzureDevOpsVariables.buildRepositoryId);
+        const pullRequestNumber = tl.getVariable(AzureDevOpsVariables.pullRequestNumber);       
+        let request = new WebRequest();
+        request.uri = `${Utility.getGitHubApiUrl()}/repos/${repoId}/issues/${pullRequestNumber}/labels`;
+        request.method = "GET";
+        request.headers = {
+            "Content-Type": "application/json",
+            'Authorization': 'token ' + githubEndpointToken
+        };
+
+        let response = await sendRequest(request);        
+       
+
+        tl.debug("List label response: " + JSON.stringify(response));    
+        if (response.statusCode !== 200) {            
+            tl.error(`Error listing labels: "status code: ${response.statusCode}, uri: ${request.uri}`);
+            throw new Error(response.body["message"]);
+        } else {
+            tl.debug(response.body);            
+            let labelsObject: LabelsObj[] = response.body;
+
+            let labels= labelsObject.map(a => a.name).toString();
+            tl.debug("List label object:" + labels)
+            tl.setVariable(variable, labels);
+        }       
+       
     }    
 }

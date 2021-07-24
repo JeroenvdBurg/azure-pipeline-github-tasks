@@ -2,14 +2,14 @@
     "manifestVersion": 1,
     "id": "githubprlabels",
     "name": "GitHub PR labels",
-    "version": "0.1.5",
-    "publisher": "fbeltrao",
+    "version": "0.2.0",
+    "publisher": "JeroenvdB",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
-    ],    
-    "description": "Add or remove labels in GitHub pull request",
+    ],
+    "description": "Add , remove or List labels in GitHub pull request",
     "categories": [
         "Azure Pipelines"
     ],
@@ -18,28 +18,30 @@
         "pull request",
         "label"
     ],
-    "public": true,
+    "public": false,
     "icons": {
-        "default": "images/icon.png"        
-    },   
+        "default": "images/icon.png"
+    },
     "screenshots": [
-        { "path": "images/screenshot-01.png" }
+        {
+            "path": "images/screenshot-01.png"
+        }
     ],
     "bugs": {
-        "url": "https://github.com/fbeltrao/azure-pipeline-github-tasks/issues"
+        "url": "https://github.com/JeroenvdBurg/azure-pipeline-github-tasks/issues"
     },
-    "homepage": "https://github.com/fbeltrao/azure-pipeline-github-tasks/blob/master/GitHubPRLabel/README.md",
+    "homepage": "https://github.com/JeroenvdBurg/azure-pipeline-github-tasks/blob/master/GitHubPRLabel/README.md",
     "links": {
         "getstarted": {
-            "uri": "https://github.com/fbeltrao/azure-pipeline-github-tasks"
+            "uri": "https://github.com/JeroenvdBurg/azure-pipeline-github-tasks"
         },
         "support": {
-            "uri": "https://github.com/fbeltrao/azure-pipeline-github-tasks/issues"
+            "uri": "https://github.com/JeroenvdBurg/azure-pipeline-github-tasks/issues"
         }
     },
     "repository": {
         "type": "git",
-        "uri": "https://github.com/fbeltrao/azure-pipeline-github-tasks"
+        "uri": "https://github.com/JeroenvdBurg/azure-pipeline-github-tasks"
     },
     "files": [
         {
@@ -51,7 +53,9 @@
         }
     ],
     "content": {
-        "details": { "path": "readme.md" }
+        "details": {
+            "path": "readme.md"
+        }
     },
     "contributions": [
         {
@@ -60,7 +64,9 @@
             "targets": [
                 "ms.vss-distributed-task.tasks"
             ],
-            "properties": { "name": "task" }
+            "properties": {
+                "name": "task"
+            }
         }
     ]
 }

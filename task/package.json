@@ -1,6 +1,6 @@
 {
   "name": "azure-pipeline-github-tasks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "GitHub PR Label management",
   "main": "index.js",
   "directories": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fbeltrao/azure-pipeline-github-tasks.git"
+    "url": "git+https://github.com/JeroenvdBurg/azure-pipeline-github-tasks.git"
   },
   "keywords": [
     "azuredevops",
@@ -28,10 +28,10 @@
     "pull",
     "request"
   ],
-  "author": "fbeltrao",
+  "author": "jeroenvdburg",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fbeltrao/azure-pipeline-github-tasks/issues"
+    "url": "https://github.com/JeroenvdBurg/azure-pipeline-github-tasks/issues"
   },
-  "homepage": "https://github.com/fbeltrao/azure-pipeline-github-tasks#readme"
+  "homepage": "https://github.com/JeroenvdBurg/azure-pipeline-github-tasks#readme"
 }

@@ -41,6 +41,7 @@ export class Utility {
 export class ActionType {
     public static readonly add = "add";
     public static readonly remove = "remove";
+    public static readonly list = "list";
     public static readonly export = "export";
 }
 
@@ -48,3 +49,10 @@ export class AzureDevOpsVariables {
     public static readonly buildRepositoryId: string = "Build.Repository.Id"; 
     public static readonly pullRequestNumber: string = "System.PullRequest.PullRequestNumber"
 }
+
+export interface  LabelsObj {
+     name: string;    
+}
+
+
+

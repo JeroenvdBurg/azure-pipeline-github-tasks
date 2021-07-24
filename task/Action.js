@@ -67,5 +67,36 @@ class Action {
             }
         });
     }
+    /**
+     * lists labels from a PR
+     * @param githubEndpointToken
+     * @param label
+     */
+    listLabels(githubEndpointToken, variable) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const repoId = tl.getVariable(Utility_1.AzureDevOpsVariables.buildRepositoryId);
+            const pullRequestNumber = tl.getVariable(Utility_1.AzureDevOpsVariables.pullRequestNumber);
+            let request = new webClient_1.WebRequest();
+            request.uri = `${Utility_1.Utility.getGitHubApiUrl()}/repos/${repoId}/issues/${pullRequestNumber}/labels`;
+            request.method = "GET";
+            request.headers = {
+                "Content-Type": "application/json",
+                'Authorization': 'token ' + githubEndpointToken
+            };
+            let response = yield webClient_1.sendRequest(request);
+            tl.debug("List label response: " + JSON.stringify(response));
+            if (response.statusCode !== 200) {
+                tl.error(`Error listing labels: "status code: ${response.statusCode}, uri: ${request.uri}`);
+                throw new Error(response.body["message"]);
+            }
+            else {
+                tl.debug(response.body);
+                let labelsObject = response.body;
+                let labels = labelsObject.map(a => a.name).toString();
+                tl.debug("List label object:" + labels);
+                tl.setVariable(variable, labels);
+            }
+        });
+    }
 }
 exports.Action = Action;
