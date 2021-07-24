@@ -91,7 +91,7 @@ export class Action {
 
             let labels= labelsObject.map(a => a.name).toString();
             tl.debug("List label object:" + labels)
-            tl.setVariable(variable, labels);
+            tl.setVariable(variable, labels, false, true);
         }       
        
     }    

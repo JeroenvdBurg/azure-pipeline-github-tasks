@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "githubprlabels",
     "name": "GitHub PR labels",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "publisher": "JeroenvdB",
     "targets": [
         {

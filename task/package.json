@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "azure-pipelines-task-lib": "^2.7.7"
+    "azure-pipelines-task-lib": "^3.1.5"
   },
   "devDependencies": {
     "@types/node": "^10.17.60",

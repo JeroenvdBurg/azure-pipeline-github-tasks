@@ -3,20 +3,20 @@ import httpClient = require("typed-rest-client/HttpClient");
 import httpInterfaces = require("typed-rest-client/Interfaces");
 import util = require("util");
 
-let proxyUrl: string = tl.getVariable("agent.proxyurl");
+let proxyUrl: string = tl.getVariable("agent.proxyurl")!;
 var requestOptions: httpInterfaces.IRequestOptions = proxyUrl ? {
     proxy: {
         proxyUrl: proxyUrl,
         proxyUsername: tl.getVariable("agent.proxyusername"),
         proxyPassword: tl.getVariable("agent.proxypassword"),
-        proxyBypassHosts: tl.getVariable("agent.proxybypasslist") ? JSON.parse(tl.getVariable("agent.proxybypasslist")) : null
+        proxyBypassHosts: tl.getVariable("agent.proxybypasslist") ? JSON.parse(tl.getVariable("agent.proxybypasslist")!) : null
     }
 } : {};
 
-let ignoreSslErrors: string = tl.getVariable("VSTS_ARM_REST_IGNORE_SSL_ERRORS");
+let ignoreSslErrors: string = tl.getVariable("VSTS_ARM_REST_IGNORE_SSL_ERRORS")!;
 requestOptions.ignoreSslError = ignoreSslErrors !== undefined && ignoreSslErrors.toLowerCase() == "true";
 
-var httpCallbackClient = new httpClient.HttpClient(tl.getVariable("AZURE_HTTP_USER_AGENT"), undefined, requestOptions);
+var httpCallbackClient = new httpClient.HttpClient(tl.getVariable("AZURE_HTTP_USER_AGENT")!, undefined, requestOptions);
 
 export class WebRequest {
     public method: string = '';
