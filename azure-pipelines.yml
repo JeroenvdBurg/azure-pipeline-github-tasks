@@ -3,17 +3,60 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# Run On PRs against all branches
+pr:
+  branches:
+    include:
+    - '*'
+  
+# Run on changes to main or dev or release branches
 trigger:
-- master
+  batch: true
+  branches:
+    include:
+    - main
+    - develop
+    - release/*
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+- stage: Build
+  displayName: Build stage
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: githubprlabels@0
+      condition: eq(variables['Build.Reason'], 'PullRequest') # only run step if it is a PR
+      inputs:
+        gitHubConnection: 'github.com_JeroenvdBurg'
+        action: 'add'
+        label: 'full-ci'
+
+    - task: githubprlabels@0
+      condition: eq(variables['Build.Reason'], 'PullRequest') # only run step if it is a PR
+      inputs:
+        gitHubConnection: 'github.com_JeroenvdBurg'
+        action: 'list'
+        variable: 'MyLabels'
+  
+
+    - script: echo Hello, world!
+      condition: contains(variables.MyLabels, 'full-ci')
+      displayName: 'full-ci labels found'
+    
+    - task: githubprlabels@0
+      condition: eq(variables['Build.Reason'], 'PullRequest') # only run step if it is a PR
+      inputs:
+        gitHubConnection: 'github.com_JeroenvdBurg'
+        action: 'remove'
+        label: 'full-ci'
+
+
+
