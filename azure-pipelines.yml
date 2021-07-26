@@ -31,6 +31,7 @@ stages:
 
     steps:
     - task: githubprlabels@0
+      name: 'AddLabel'
       condition: eq(variables['Build.Reason'], 'PullRequest') # only run step if it is a PR
       inputs:
         gitHubConnection: 'github.com_JeroenvdBurg'
@@ -38,6 +39,7 @@ stages:
         label: 'full-ci'
 
     - task: githubprlabels@0
+      name: 'ListLabel'
       condition: eq(variables['Build.Reason'], 'PullRequest') # only run step if it is a PR
       inputs:
         gitHubConnection: 'github.com_JeroenvdBurg'
@@ -50,6 +52,7 @@ stages:
       displayName: 'full-ci labels found'
     
     - task: githubprlabels@0
+      name: 'RemoveLabel'
       condition: eq(variables['Build.Reason'], 'PullRequest') # only run step if it is a PR
       inputs:
         gitHubConnection: 'github.com_JeroenvdBurg'
