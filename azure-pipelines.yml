@@ -44,9 +44,8 @@ stages:
       inputs:
         gitHubConnection: 'github.com_JeroenvdBurg'
         action: 'list'
-        variable: 'MyLabels'     
-            
-    - script: echo $(MyLabels) # this step uses the mapped-in variable  
+        variable: 'MyLabels'                
+
        
   - job: Test
     displayName: test
@@ -54,12 +53,10 @@ stages:
     variables:
       MyLabels: $[dependencies.Build.outputs['ListLabel.MyLabels'] ]
 
-    steps:
-    - script: echo $(MyLabels) # this step uses the mapped-in variable  
-       
-    - script: echo Hello, world!
+    steps:       
+    - script: check label
       condition: contains(variables.MyLabels, 'full-ci')
-      displayName: 'full-ci labels found'
+      displayName: 'full-ci label found'
     
     - task: githubprlabels@0
       name: 'RemoveLabel'
