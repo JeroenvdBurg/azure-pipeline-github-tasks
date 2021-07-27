@@ -21,6 +21,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  MyLabels: ''
+
 stages:
 - stage: Build
   displayName: Build stage
@@ -45,8 +48,11 @@ stages:
         gitHubConnection: 'github.com_JeroenvdBurg'
         action: 'list'
         variable: 'MyLabels'
-  
+       
+  - job: Test
+    displayName: test
 
+    steps:
     - script: echo Hello, world!
       condition: contains(variables.MyLabels, 'full-ci')
       displayName: 'full-ci labels found'
