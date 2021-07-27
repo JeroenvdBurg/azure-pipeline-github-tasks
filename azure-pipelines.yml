@@ -50,9 +50,11 @@ stages:
     displayName: test
     dependsOn: Build
     variables:
-      MyLabels: $[ dependencies.Build.outputs['ListLabel.MyLabels'] ]  
-   
+      MyLabels: $[dependencies.Build.outputs['ListLabel.MyLabels'] ]
+
     steps:
+    - script: echo $(MyLabels) # this step uses the mapped-in variable  
+       
     - script: echo Hello, world!
       condition: contains(variables.MyLabels, 'full-ci')
       displayName: 'full-ci labels found'
