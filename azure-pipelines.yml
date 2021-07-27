@@ -21,9 +21,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  MyLabels: ''
-
 stages:
 - stage: Build
   displayName: Build stage
@@ -51,7 +48,9 @@ stages:
        
   - job: Test
     displayName: test
-
+    variables:
+      MyLabels: $[ dependencies.Build.outputs['ListLabel.MyLabels'] ]  
+   
     steps:
     - script: echo Hello, world!
       condition: contains(variables.MyLabels, 'full-ci')
