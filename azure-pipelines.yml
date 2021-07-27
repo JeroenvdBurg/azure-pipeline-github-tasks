@@ -44,7 +44,9 @@ stages:
       inputs:
         gitHubConnection: 'github.com_JeroenvdBurg'
         action: 'list'
-        variable: 'MyLabels'
+        variable: 'MyLabels'    
+      
+    - script: echo $(MyLabels) # this step uses the mapped-in variable  
        
   - job: Test
     displayName: test
