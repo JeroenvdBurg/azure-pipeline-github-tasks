@@ -48,6 +48,7 @@ stages:
        
   - job: Test
     displayName: test
+    dependsOn: Build
     variables:
       MyLabels: $[ dependencies.Build.outputs['ListLabel.MyLabels'] ]  
    
