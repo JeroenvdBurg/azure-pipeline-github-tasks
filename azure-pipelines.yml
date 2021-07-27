@@ -54,9 +54,9 @@ stages:
       MyLabels: $[dependencies.Build.outputs['ListLabel.MyLabels'] ]
 
     steps:       
-    - script: check label
+    - script:  echo full-ci label found
       condition: contains(variables.MyLabels, 'full-ci')
-      displayName: 'full-ci label found'
+      displayName: 'check label'
     
     - task: githubprlabels@0
       name: 'RemoveLabel'
