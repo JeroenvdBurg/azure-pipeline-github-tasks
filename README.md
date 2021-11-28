@@ -18,6 +18,8 @@ this extension is based on https://github.com/fbeltrao/prvalidationci
 
 ## Examples
 
+see devops pipeline: https://signatoryrocket.visualstudio.com/GithubPRLabels/_build?definitionId=5
+
 ### Adding a label
 
 ```yaml
