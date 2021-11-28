@@ -11,9 +11,9 @@
         "Build"
     ],
     "version": {
-        "Major": 0,
-        "Minor": 2,
-        "Patch": 1
+        "Major": 1,
+        "Minor": 0,
+        "Patch": 0
     },
     "instanceNameFormat": "GitHub PR label ($(action))",
     "inputs": [
@@ -58,7 +58,7 @@
         }
     ],
     "execution": {
-        "Node": {
+        "Node10": {
             "target": "index.js"
         }
     }

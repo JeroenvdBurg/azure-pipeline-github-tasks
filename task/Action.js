@@ -94,7 +94,7 @@ class Action {
                 let labelsObject = response.body;
                 let labels = labelsObject.map(a => a.name).toString();
                 tl.debug("List label object:" + labels);
-                tl.setVariable(variable, labels, false);
+                tl.setVariable(variable, labels, false, true);
             }
         });
     }
