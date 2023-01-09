@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AzureDevOpsVariables = exports.ActionType = exports.Utility = void 0;
 const tl = require("azure-pipelines-task-lib/task");
 class Utility {
     static getGithubEndPointToken(githubEndpoint) {

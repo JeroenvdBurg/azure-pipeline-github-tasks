@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Action = void 0;
 const tl = require("azure-pipelines-task-lib/task");
 const webClient_1 = require("./webClient");
 const Utility_1 = require("./Utility");
